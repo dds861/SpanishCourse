@@ -35,8 +35,17 @@ class LevelFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = LevelAdapter { level -> onNavigateToLesson(level) }
+        setupRecyclerView(adapter)
+
+        viewModel.levels.observe(viewLifecycleOwner, {
+            adapter.submitList(it)
+        })
 
 
+
+    }
+
+    private fun setupRecyclerView(adapter: LevelAdapter) {
         binding.levelRecyclerView.adapter = adapter
         binding.levelRecyclerView.addItemDecoration(
             DividerItemDecoration(
