@@ -1,0 +1,35 @@
+package com.dd.spanishcourse.ui.lesson
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
+import com.dd.spanishcourse.CourseApplication
+import com.dd.spanishcourse.databinding.FragmentLessonBinding
+
+
+class LessonFragment : Fragment() {
+
+
+    private val args: LessonFragmentArgs by navArgs()
+    private lateinit var binding: FragmentLessonBinding
+    private val viewModel: LessonViewModel by activityViewModels {
+        LessonViewModelFactory(
+            ((activity?.application) as CourseApplication).repository
+        )
+    }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentLessonBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+
+}
