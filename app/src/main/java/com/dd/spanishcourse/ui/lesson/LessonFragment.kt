@@ -40,7 +40,7 @@ class LessonFragment : Fragment() {
 
 
 
-        viewModel.getLessons(args.level).observe(viewLifecycleOwner, {
+        viewModel.getLessons(args.level, args.lessonList).observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
 

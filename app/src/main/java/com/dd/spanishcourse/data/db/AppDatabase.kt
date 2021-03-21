@@ -5,11 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.dd.spanishcourse.data.db.entities.LessonEntity
-import com.dd.spanishcourse.data.db.entities.LevelEntity
 import kotlinx.coroutines.CoroutineScope
 
 @Database(
-    entities = [LevelEntity::class, LessonEntity::class],
+    entities = [LessonEntity::class],
     version = 1,
     exportSchema = false
 )

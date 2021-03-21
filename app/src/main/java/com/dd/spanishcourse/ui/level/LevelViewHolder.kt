@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dd.spanishcourse.R
-import com.dd.spanishcourse.data.db.entities.LevelEntity
+import com.dd.spanishcourse.data.db.entities.LessonEntity
 
 class LevelViewHolder(
     itemView: View,
@@ -15,7 +15,7 @@ class LevelViewHolder(
 
     private val TAG = "HospitalViewHolder"
 
-    private var LevelEntity: LevelEntity = LevelEntity()
+    private var LessonEntity: LessonEntity = LessonEntity()
 
     private val tvLevel = itemView.findViewById<TextView>(R.id.tvLevel)
 
@@ -38,12 +38,12 @@ class LevelViewHolder(
     }
 
     private fun invokeNavigation(navigate: (levelName: Int) -> Unit) {
-        navigate.invoke(LevelEntity.level)
+        navigate.invoke(LessonEntity.level)
     }
 
 
-    fun bind(LevelEntity: LevelEntity) {
-        this.LevelEntity = LevelEntity
-        tvLevel.text = LevelEntity.level.toString()
+    fun bind(LessonEntity: LessonEntity) {
+        this.LessonEntity = LessonEntity
+        tvLevel.text = "${LessonEntity.level} level"
     }
 }

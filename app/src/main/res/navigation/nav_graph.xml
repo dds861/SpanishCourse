@@ -13,6 +13,9 @@
         <argument
             android:name="level"
             app:argType="integer" />
+        <argument
+            android:name="lessonList"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/levelFragment"
@@ -20,7 +23,19 @@
         android:label="fragment_level"
         tools:layout="@layout/fragment_level" >
         <action
-            android:id="@+id/action_levelFragment_to_lessonFragment"
+            android:id="@+id/action_levelFragment_to_lessonListFragment"
+            app:destination="@id/lessonListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonListFragment"
+        android:name="com.dd.spanishcourse.ui.lessonlist.LessonListFragment"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list" >
+        <action
+            android:id="@+id/action_lessonListFragment_to_lessonFragment"
             app:destination="@id/lessonFragment" />
+        <argument
+            android:name="level"
+            app:argType="integer" />
     </fragment>
 </navigation>

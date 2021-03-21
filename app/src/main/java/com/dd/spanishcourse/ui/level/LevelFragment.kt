@@ -57,7 +57,7 @@ class LevelFragment : Fragment() {
     }
 
     private fun onNavigateToLesson(level: Int) {
-        val action = LevelFragmentDirections.actionLevelFragmentToLessonFragment(level)
+        val action = LevelFragmentDirections.actionLevelFragmentToLessonListFragment(level)
         NavHostFragment.findNavController(this).navigate(action)
     }
 
