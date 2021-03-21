@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:background="@color/darkBackground"
+    android:padding="16dp"
     tools:context=".ui.level.LevelFragment">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_blank_fragment"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/lightText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
