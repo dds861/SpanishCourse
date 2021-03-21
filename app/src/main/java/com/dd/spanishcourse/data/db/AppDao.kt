@@ -12,4 +12,10 @@ interface AppDao {
 
     @Query("SELECT * FROM level_table ORDER BY id")
     fun getLevels(): Flow<List<LevelEntity>>
+
+
+    @Query("SELECT * FROM lesson_table WHERE level =:level ORDER BY id")
+    fun getLessons(level: Int): Flow<List<LessonEntity>>
+
+
 }

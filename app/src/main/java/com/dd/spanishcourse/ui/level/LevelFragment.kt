@@ -46,14 +46,14 @@ class LevelFragment : Fragment() {
     }
 
     private fun setupRecyclerView(adapter: LevelAdapter) {
-        binding.levelRecyclerView.adapter = adapter
-        binding.levelRecyclerView.addItemDecoration(
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 context,
                 LinearLayoutManager.VERTICAL
             )
         )
-        binding.levelRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun onNavigateToLesson(level: Int) {

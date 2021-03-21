@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dd.spanishcourse.CourseApplication
 import com.dd.spanishcourse.databinding.FragmentLessonBinding
 
@@ -31,5 +33,27 @@ class LessonFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val adapter = LessonAdapter()
+        setupRecyclerView(adapter)
 
+
+
+        viewModel.getLessons(args.level).observe(viewLifecycleOwner, {
+            adapter.submitList(it)
+        })
+
+    }
+
+    private fun setupRecyclerView(adapter: LessonAdapter) {
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                LinearLayoutManager.VERTICAL
+            )
+        )
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
 }
