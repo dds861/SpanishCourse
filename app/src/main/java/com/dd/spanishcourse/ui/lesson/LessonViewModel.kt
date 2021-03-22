@@ -12,4 +12,8 @@ class LessonViewModel(private val repository: DatabaseRepository) : ViewModel() 
     fun getLessons(level: Int, lessonList: Int): LiveData<List<LessonEntity>> {
         return repository.getLessonsFiltered(level, lessonList).asLiveData()
     }
+
+    suspend fun setChecked(lessonEntity: LessonEntity) {
+        repository.setChecked(lessonEntity)
+    }
 }

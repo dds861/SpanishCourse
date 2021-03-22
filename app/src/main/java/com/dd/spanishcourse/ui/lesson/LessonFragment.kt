@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dd.spanishcourse.CourseApplication
+import com.dd.spanishcourse.R
 import com.dd.spanishcourse.databinding.FragmentLessonBinding
+import kotlinx.coroutines.launch
 
 
 class LessonFragment : Fragment() {
@@ -35,9 +38,16 @@ class LessonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = LessonAdapter()
+        val adapter = LessonAdapter { lessonEntity ->
+            lifecycleScope.launch {
+                viewModel.setChecked(lessonEntity)
+
+            }
+
+        }
         setupRecyclerView(adapter)
 
+        requireActivity().title = "Level ${args.level}, Lesson ${args.lessonList}"
 
 
         viewModel.getLessons(args.level, args.lessonList).observe(viewLifecycleOwner, {
@@ -47,13 +57,14 @@ class LessonFragment : Fragment() {
     }
 
     private fun setupRecyclerView(adapter: LessonAdapter) {
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                context,
-                LinearLayoutManager.VERTICAL
-            )
+        val divider = DividerItemDecoration(
+            context,
+            LinearLayoutManager.VERTICAL,
         )
+        divider.setDrawable(resources.getDrawable(R.drawable.line_divider, null))
+
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.addItemDecoration(divider)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 }

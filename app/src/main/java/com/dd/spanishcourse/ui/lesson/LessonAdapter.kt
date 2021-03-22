@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.ListAdapter
 import com.dd.spanishcourse.data.db.entities.LessonEntity
 
 
-class LessonAdapter() :
+class LessonAdapter(private val listener: (lessonEntity: LessonEntity) -> Unit) :
     ListAdapter<LessonEntity, LessonViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
-        return LessonViewHolder.create(parent)
+        return LessonViewHolder.create(parent, listener)
     }
 
     override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {

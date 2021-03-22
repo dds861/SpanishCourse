@@ -23,4 +23,8 @@ class DatabaseRepository(private val appDao: AppDao) {
             .map { list -> list.distinctBy { Pair(it.level, it.lesson) } }
     }
 
+    suspend fun setChecked(lessonEntity: LessonEntity) {
+        return appDao.insertLesson(lessonEntity)
+    }
+
 }

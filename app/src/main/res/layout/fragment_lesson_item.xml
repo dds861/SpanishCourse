@@ -2,37 +2,55 @@
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layoutDescription="@xml/fragment_lesson_item_scene"
     tools:context=".ui.level.LevelFragment">
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="@color/darkBackground"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintBottom_toBottomOf="@id/tvEnglishVersion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvEnglishVersion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/darkBackground"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
+        android:padding="16dp"
         android:text="@string/hello_blank_fragment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/lightText"
+        app:layout_constraintEnd_toStartOf="@id/ivCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tvSpanishVersionHandWritten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_dark"
+        android:hint="write here"
+        android:padding="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/lightText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tvEnglishVersion" />
 
     <TextView
         android:id="@+id/tvSpanishVersion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/lightBackground"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        android:text="@string/hello_blank_fragment"
+        android:padding="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/lightText" />
 

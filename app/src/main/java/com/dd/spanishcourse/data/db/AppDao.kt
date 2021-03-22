@@ -1,6 +1,8 @@
 package com.dd.spanishcourse.data.db
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.dd.spanishcourse.data.db.entities.LessonEntity
 import kotlinx.coroutines.flow.Flow
@@ -21,6 +23,9 @@ interface AppDao {
 
     @Query("SELECT * FROM lesson_table WHERE level =:level ORDER BY id")
     fun getLessonList(level: Int): Flow<List<LessonEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertLesson(lessonEntity: LessonEntity)
 
 
 }

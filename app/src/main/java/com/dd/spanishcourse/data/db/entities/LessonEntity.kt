@@ -14,6 +14,7 @@ data class LessonEntity(
     @ColumnInfo(name = LESSON) val lesson: Int = 0,
     @ColumnInfo(name = SPANISH) val spanish: String = STRING_EMPTY,
     @ColumnInfo(name = ENGLISH) val english: String = STRING_EMPTY,
+    @ColumnInfo(name = CHECKED) val checked: Boolean = false,
 ) {
     //////////////////////////TABLE///////////////////////////
     companion object {
@@ -23,6 +24,7 @@ data class LessonEntity(
         const val LESSON = "lesson"
         const val SPANISH = "spanish"
         const val ENGLISH = "english"
+        const val CHECKED = "checked"
 
     }
     //////////////////////////////////////////////////////////

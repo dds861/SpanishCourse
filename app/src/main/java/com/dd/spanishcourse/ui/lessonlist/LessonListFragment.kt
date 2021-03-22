@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dd.spanishcourse.CourseApplication
 import com.dd.spanishcourse.databinding.FragmentLessonBinding
 
+
 class LessonListFragment : Fragment() {
     private val args: LessonListFragmentArgs by navArgs()
     private lateinit var binding: FragmentLessonBinding
@@ -34,6 +35,9 @@ class LessonListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        requireActivity().title = "Level ${args.level}"
+
         val adapter =
             LessonListAdapter { level, lessonList -> onNavigateToLesson(level, lessonList) }
         setupRecyclerView(adapter)
@@ -44,6 +48,7 @@ class LessonListFragment : Fragment() {
 
 
     }
+
 
     private fun setupRecyclerView(adapter: LessonListAdapter) {
         binding.recyclerView.adapter = adapter
