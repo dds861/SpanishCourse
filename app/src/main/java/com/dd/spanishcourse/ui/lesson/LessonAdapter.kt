@@ -9,6 +9,8 @@ import com.dd.spanishcourse.data.db.entities.LessonEntity
 class LessonAdapter(private val listener: (lessonEntity: LessonEntity) -> Unit) :
     ListAdapter<LessonEntity, LessonViewHolder>(DIFF_CALLBACK) {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
         return LessonViewHolder.create(parent, listener)
     }

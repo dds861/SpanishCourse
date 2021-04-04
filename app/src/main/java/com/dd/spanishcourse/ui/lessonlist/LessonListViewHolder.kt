@@ -1,5 +1,6 @@
 package com.dd.spanishcourse.ui.lessonlist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,9 @@ class LessonListViewHolder(
     }
 
     init {
-        tvItem.setOnClickListener { invokeNavigation(navigate) }
+        tvItem.setOnClickListener {
+            Log.i(TAG, "tvItem.setOnClickListener   ")
+            invokeNavigation(navigate) }
         itemView.rootView.setOnClickListener { invokeNavigation(navigate) }
 
     }
